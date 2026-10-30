@@ -1,0 +1,7 @@
+<filter-conf>
+<version>2025112102</version>
+    <isOpen>1</isOpen>
+    <filter-name>sys_custom_clear_appfilter_list</filter-name>
+	<p_cond_wl pkg="com.coloros.securityguard" bg_clean_strategy="0xf0-0x7-2162688"/>
+    <p_cond_wl pkg="com.discord" use_kill="true" />
+</filter-conf>

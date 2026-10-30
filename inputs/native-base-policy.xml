@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<filter-conf> 
+  <version>2125031040</version>  
+  <isOpen>1</isOpen>  
+  <filter-name>sys_clear_appfilter_list</filter-name>  
+  <!--   protect processes  -->  
+  <ProtectProcessInfo>com.oplus.safecenter#com.oplus.safecenter:clear_filter</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.battery#com.oplus.battery</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.ota#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.ota#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.alarmclock#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oppo.alarmclock#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.redteamobile.roaming#com.redteamobile.virtual.softsim</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.redteamobile.virtual.softsim#com.redteamobile.virtual.softsim</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.cosa#com.oplus.cosa:service</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.google.android.gms#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>org.simalliance.openmobileapi.service#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oneplus.camera#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.camera#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.oppopods#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.melody#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.google.android.webview#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.android.webview#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.android.packageinstaller#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.tencent.tim#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.netease.mobimail#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.tencent.wework#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.yoli#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.yoli#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.android.se#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.alibaba.android.rimet#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.feiliao.flipchat.android#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.eg.android.AlipayGphone#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.phonenoareainquire#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.phonenoareainquire#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.android.permissioncontroller#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>cn.xuexi.android#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.accessory#com.heytap.accessory</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.health#com.heytap.health:transport</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.aiunit.aon#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.logkit#com.oplus.logkit.coreservice.LogCoreService</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.linker#com.oplus.linker:protectservice</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.linker#com.heytap.linker:protectservice</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.oscenter#com.oplus.oscenter</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.smartlock#com.coloros.smartlock</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.smartsidebar#com.coloros.smartsidebar:edgepanel</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.pictorial#com.heytap.pictorial</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oppo.instant.local.service#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.dmp#com.oplus.dmp</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.ipspace#com.oplus.ipspace:pendant</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.coloros.sceneservice#NONE</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.themestore#com.heytap.themestore:pendant</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.oplus.themestore#com.oplus.themestore:pendant</ProtectProcessInfo>  
+  <ProtectProcessInfo>com.heytap.quicksearchbox#NONE</ProtectProcessInfo>  
+  <RestartTencent>true</RestartTencent>  
+  <MorningClearRandomTimeStart>2</MorningClearRandomTimeStart>  
+  <MorningClearRandomTimeEnd>5</MorningClearRandomTimeEnd>  
+  <p_wl pkg="com.heytap.themestore" proc_keep="com.heytap.themestore:pendant" bg_clean_strategy="6656"/>  
+  <p_wl pkg="com.oplus.themestore" proc_keep="com.oplus.themestore:pendant" bg_clean_strategy="6656"/>  
+  <p_wl pkg="com.oplus.battery" proc_keep="com.oplus.battery"/>  
+  <p_wl pkg="com.oplus.tzupdate" bg_clean_strategy="6144"/>  
+  <p_wl pkg="com.android.incallui" bg_clean_strategy="14337"/>  
+  <p_wl pkg="com.oppo.usercenter" bg_clean_strategy="14337"/>  
+  <p_wl pkg="com.heytap.usercenter" bg_clean_strategy="14337"/>  
+  <p_wl pkg="com.heytap.openid" bg_clean_strategy="8193"/>  
+  <p_wl pkg="com.oplus.securitypermission" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.heytap.habit.analysis" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.coloros.activation" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.oplus.romupdate" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.oplus.sau" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.daemon.shelper" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.coloros.oshare" bg_clean_strategy="0"/>  
+  <p_wl pkg="android.ext.services" bg_clean_strategy="14337"/>  
+  <p_wl pkg="com.android.contacts" bg_clean_strategy="39811"/>  
+  <p_wl pkg="com.debug.loggerui" bg_clean_strategy="8192"/>  
+  <p_wl pkg="com.oplus.location" bg_clean_strategy="14401"/>  
+  <p_wl pkg="com.oplus.safecenter" bg_clean_strategy="17002"/>  
+  <p_wl pkg="com.oplus.screenshot" bg_clean_strategy="16384"/>  
+  <p_wl pkg="com.coloros.floatassistant" bg_clean_strategy="16385"/>  
+  <p_wl pkg="com.oplus.vdc" bg_clean_strategy="16383"/>  
+  <p_wl pkg="com.oplus.pcengine" bg_clean_strategy="131072"/>  
+  <p_wl pkg="com.oplus.securitykeyboard" bg_clean_strategy="14336"/>  
+  <p_wl pkg="com.oplus.ocar" remove_task_filter="com.oplus.ocar" bg_clean_strategy="16383"/>  
+  <p_wl pkg="com.heytap.quicksearchbox" remove_task_filter="com.heytap.quicksearchbox"/>  
+  <p_wl pkg="com.android.email" remove_task_filter="com.android.email:remote"/>  
+  <p_wl pkg="android.process.contacts" remove_task_filter="android.process.contacts"/>  
+  <p_wl pkg="com.tencent.mobileqq" kill_restart_service="com.tencent.mobileqq" service_quick_restart="com.tencent.mobileqq:MSF" remove_task_filter="com.tencent.mobileqq:MSF"/>  
+  <p_wl pkg="com.tencent.mm" proc_keep="com.tencent.mm:push" kill_restart_service="com.tencent.mm" service_quick_restart="com.tencent.mm:push" remove_task_filter="com.tencent.mm#com.tencent.mm:push#com.tencent.mm:tools#com.tencent.mm:xweb_privileged_process_0#com.tencent.mm:xweb_sandboxed_process_0:com.tencent.xweb.pinus.sdk.process.SandboxedProcessService0"/>  
+  <p_wl pkg="com.coloros.ota" use_kill="true"/>  
+  <p_wl pkg="com.oplus.ota" use_kill="true"/>  
+  <p_wl pkg="com.coloros.alarmclock" use_kill="true"/>  
+  <p_wl pkg="com.redteamobile.roaming" proc_keep="com.redteamobile.virtual.softsim"/>  
+  <p_wl pkg="com.redteamobile.virtual.softsim" proc_keep="com.redteamobile.virtual.softsim"/>  
+  <p_wl pkg="com.oplus.cosa" proc_keep="com.oplus.cosa:service"/>  
+  <p_wl pkg="com.google.android.gms" use_kill="true"/>  
+  <p_wl pkg="org.simalliance.openmobileapi.service" use_kill="true"/>  
+  <p_wl pkg="com.oneplus.camera" use_kill="true" remove_task_filter="com.oneplus.camera" bg_clean_strategy="6657"/>  
+  <p_wl pkg="com.oplus.camera" use_kill="true" remove_task_filter="com.oplus.camera" bg_clean_strategy="6657"/>  
+  <p_wl pkg="com.coloros.oppopods" use_kill="true"/>  
+  <p_wl pkg="com.oplus.melody" use_kill="true"/>  
+  <p_wl pkg="com.google.android.webview" use_kill="true"/>  
+  <p_wl pkg="com.android.webview" use_kill="true"/>  
+  <p_wl pkg="com.android.packageinstaller" use_kill="true"/>  
+  <p_wl pkg="com.tencent.tim" use_kill="true"/>  
+  <p_wl pkg="com.netease.mobimail" use_kill="true"/>  
+  <p_wl pkg="com.coloros.yoli" use_kill="true"/>  
+  <p_wl pkg="com.heytap.yoli" use_kill="true"/>  
+  <p_wl pkg="com.android.se" use_kill="true"/>  
+  <p_wl pkg="com.alibaba.android.rimet" use_kill="true"/>  
+  <p_wl pkg="com.feiliao.flipchat.android" use_kill="true" kill_restart_service="com.feiliao.flipchat.android"/>  
+  <p_wl pkg="com.eg.android.AlipayGphone" use_kill="true" kill_restart_service="com.eg.android.AlipayGphone"/>  
+  <p_wl pkg="com.coloros.phonenoareainquire" use_kill="true"/>  
+  <p_wl pkg="com.oplus.phonenoareainquire" use_kill="true"/>  
+  <p_wl pkg="com.android.permissioncontroller" use_kill="true"/>  
+  <p_wl pkg="cn.xuexi.android" use_kill="true" kill_restart_service="cn.xuexi.android"/>  
+  <p_wl pkg="com.heytap.accessory" proc_keep="com.heytap.accessory" service_quick_restart="com.heytap.accessory" remove_task_filter="com.heytap.accessory"/>  
+  <p_wl pkg="com.heytap.health" proc_keep="com.heytap.health:transport" remove_task_filter="com.heytap.health:transport"/>  
+  <p_wl pkg="com.aiunit.aon" use_kill="true"/>  
+  <p_wl pkg="com.oplus.logkit" proc_keep="com.oplus.logkit.coreservice.LogCoreService"/>  
+  <p_wl pkg="com.oplus.linker" proc_keep="com.oplus.linker:protectservice"/>  
+  <p_wl pkg="com.heytap.linker" proc_keep="com.heytap.linker:protectservice"/>  
+  <p_wl pkg="com.oplus.oscenter" proc_keep="com.oplus.oscenter"/>  
+  <p_wl pkg="com.coloros.smartlock" proc_keep="com.coloros.smartlock" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.coloros.smartsidebar" proc_keep="com.coloros.smartsidebar:edgepanel" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.heytap.pictorial" proc_keep="com.heytap.pictorial" bg_clean_strategy="0"/>  
+  <p_wl pkg="com.oppo.instant.local.service" use_kill="true" bg_clean_strategy="14849"/>  
+  <p_wl pkg="com.oplus.dmp" proc_keep="com.oplus.dmp"/>  
+  <p_wl pkg="com.oplus.ipspace" proc_keep="com.oplus.ipspace:pendant" remove_task_filter="com.oplus.ipspace:pendant"/>  
+  <p_wl pkg="com.coloros.sceneservice" use_kill="true"/>  
+  <p_wl pkg="com.oplus.smartmediacontroller" bg_clean_strategy="4"/>  
+  <p_wl pkg="me.ele.hbdteam" bg_clean_strategy="8192"/>  
+  <p_wl pkg="me.ele.crowdsource" bg_clean_strategy="8192"/>  
+  <p_wl pkg="com.oplus.riderMode" bg_clean_strategy="1"/>  
+  <p_cond_wl pkg="com.teamtalk.im" bg_clean_strategy="14549"/>  
+  <p_cond_wl pkg="com.teamtalk.im" bg_clean_strategy="0x1f-0x7-22533"/>  
+  <p_cond_wl pkg="com.tencent.wework" use_kill="true" bg_clean_strategy="16646"/>  
+  <!-- Add to keep system app backwards compatibility: do not skip proc_keep in one-key clear and memory guard. -->  
+  <p_cond_wl pkg="com.oplus.themestore" proc_keep="com.oplus.themestore:pendant@0xDEDFFE" bg_clean_strategy="6656"/>  
+  <p_cond_wl pkg="com.oplus.battery" proc_keep="com.oplus.battery@0xDEDFFE"/>  
+  <p_cond_wl pkg="com.oplus.cosa" proc_keep="com.oplus.cosa:service@0xDEDFFE"/>  
+  <p_cond_wl pkg="com.heytap.accessory" proc_keep="com.heytap.accessory@0xDEDFFE" service_quick_restart="com.heytap.accessory" remove_task_filter="com.heytap.accessory"/>  
+  <p_cond_wl pkg="com.oplus.logkit" proc_keep="com.oplus.logkit.coreservice.LogCoreService@0xDEDFFE"/>  
+  <p_cond_wl pkg="com.oplus.linker" proc_keep="com.oplus.linker:protectservice@0xDEDFFE"/>  
+  <p_cond_wl pkg="com.coloros.smartlock" proc_keep="com.coloros.smartlock@0xDEDFFE" bg_clean_strategy="0"/>  
+  <p_cond_wl pkg="com.coloros.smartsidebar" proc_keep="com.coloros.smartsidebar:edgepanel@0xDEDFFE" bg_clean_strategy="0"/>  
+  <p_cond_wl pkg="com.oplus.dmp" proc_keep="com.oplus.dmp@0xDEDFFE"/>  
+  <p_cond_wl pkg="com.android.providers.contacts" proc_keep="0x18-0x3-android.process.acore@0x2000"/>  
+  <p_cond_wl pkg="android.process.acore" proc_keep="0x18-0x3-android.process.acore@0x2000"/>  
+  <p_crm source="pangu" bg_clean_strategy="8" kill_restart_service="$" pkg="com.heytap.market" remove_task_filter="$" service_quick_restart="$"/>
+  <p_crm source="pangu" kill_restart_service="$" pkg="com.jingdong.app.mall" proc_keep="com.jingdong.app.mall:jdpush" remove_task_filter="$" service_quick_restart="$"/>
+  <p_crm source="pangu" bg_clean_strategy="8" kill_restart_service="$" pkg="com.oppo.market" remove_task_filter="$" service_quick_restart="$"/>
+  <p_crm source="pangu" kill_restart_service="$" pkg="com.taobao.taobao" proc_keep="com.taobao.taobao:channel" remove_task_filter="$" service_quick_restart="$"/>
+  <p_crm source="pangu" kill_restart_service="$" pkg="com.xunmeng.pinduoduo" proc_keep="com.xunmeng.pinduoduo:titan" remove_task_filter="$" service_quick_restart="$"/>
+</filter-conf>
+

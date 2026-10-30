@@ -1,0 +1,6 @@
+id=discord_athena_usekill
+name=Let Apps Live (ColorOS 16)
+version=0.3.0
+versionCode=3
+author=dtingley11
+description=Uses ordinary kills for user-app cleanup. Includes the notification manager. Requires PLR110_16.0.10.500(CN01) and Mountify.

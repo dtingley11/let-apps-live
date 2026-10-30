@@ -1,0 +1,6 @@
+id=discord_athena_usekill
+name=Discord Athena use_kill (ColorOS 16 pilot)
+version=0.1.0
+versionCode=1
+author=dtingley11
+description=Experimental Discord-only native Athena cleanup exception. Requires PLR110_16.0.10.500(CN01) and Mountify. No Xposed hooks.

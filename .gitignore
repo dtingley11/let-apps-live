@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+/dist/
+/history/**/dist/
+/private/
+# Phone-specific package inventory and generated payloads stay local.
+/inputs/user-apps.txt
+/module/covered-packages.txt
+/module/system/
+/module/state.sha256
+/module/resources.sha256
+/module/policy-entries.tsv
+/module/companion/
+/manager/build/
+/manager/dist/
+/manager/.signing/
