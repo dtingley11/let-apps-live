@@ -4,13 +4,18 @@ A KernelSU module and Android companion for ColorOS notification behavior.
 The module changes user-app cleanup from force-stop to ordinary process kill.
 The companion manages which apps retain posted notifications during cleanup.
 
-## Requirements
+## Tested setup
 
-- OnePlus PLR110 running `PLR110_16.0.10.500(CN01)` / Android 16.
-- KernelSU and Mountify in automatic mode.
+- OnePlus Ace 6T (PLR110), ColorOS 16 / Android 16.
+- Firmware: `PLR110_16.0.10.500(CN01)`.
+- KernelSU Next with Mountify in automatic mode.
 
-The module checks the firmware and original configuration before applying its
-overlay. Other builds require review; do not bypass these checks after an OTA.
+The current installer checks for this exact firmware and its original
+configuration. Compatibility with other setups has not been verified.
+
+If installation is rejected or something isn't working,
+[open an issue](https://github.com/dtingley11/let-apps-live/issues/new).
+Include your device, firmware, root manager, and installer or Action output.
 
 ## Install
 
