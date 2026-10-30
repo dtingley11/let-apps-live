@@ -4,17 +4,16 @@
 [ "$BOOTMODE" = true ] || abort 'Install while Android is running.'
 MODDIR=$MODPATH
 . "$MODDIR/common.sh"
-athena_check install || abort "$ATHENA_ERROR"
+athena_check_platform || abort "$ATHENA_ERROR"
 
 athena_tmp=$(mktemp -d "$MODPATH/.install-inventory.XXXXXX") || abort 'Cannot prepare the package inventory.'
-cleanup() {
-    rm -f "$athena_tmp/pm.txt" "$athena_tmp/users.xml" "$athena_tmp/packages.xml" \
-        "$athena_tmp/unsorted.txt" "$athena_tmp/apps.txt" \
-        "$athena_tmp/policy.xml" "$athena_tmp/state.sha256"
-    rmdir "$athena_tmp" 2>/dev/null
-}
+cleanup() { rm -rf "$athena_tmp"; }
 trap cleanup EXIT
 athena_boot_inventory "$athena_tmp" || abort 'Cannot decode a complete Android user-app inventory.'
+if ! athena_prepare_device "$athena_tmp"; then
+    [ ! -f "$MODDIR/policy-prepare.log" ] || cat "$MODDIR/policy-prepare.log"
+    abort "${ATHENA_ERROR:-Cannot prepare the device policy.}"
+fi
 athena_make_policy "$athena_tmp/apps.txt" "$athena_tmp" || abort 'Cannot generate the app policy.'
 
 set_perm_recursive "$MODPATH" 0 0 0755 0644

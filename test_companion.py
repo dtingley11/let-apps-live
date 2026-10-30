@@ -3,12 +3,14 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+import re
 
 ROOT = Path(__file__).resolve().parent
+VERSION = int(re.search(r'^LAL_VERSION_CODE=(\d+)$', (ROOT / 'module/companion.sh').read_text(), re.M).group(1))
 
 
 class CompanionTests(unittest.TestCase):
-    def trial(self, *, installed=None, granted=False, version=3, install_failure=False,
+    def trial(self, *, installed=None, granted=False, version=VERSION, install_failure=False,
               install_wrong_hash=False, grant_failure=False, ineffective_grant=False, tampered=False):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -87,12 +89,12 @@ class CompanionTests(unittest.TestCase):
         self.assertEqual((calls, permission), (['install'], 'false'))
 
     def test_newer_app_with_existing_grant_is_preserved(self):
-        code, calls, _, status = self.trial(installed='other', version=4, granted=True)
+        code, calls, _, status = self.trial(installed='other', version=VERSION + 1, granted=True)
         self.assertEqual((code, calls), (0, []))
         self.assertIn('newer companion retained', status)
 
     def test_newer_unverified_app_is_not_given_new_permission(self):
-        code, calls, permission, _ = self.trial(installed='other', version=4)
+        code, calls, permission, _ = self.trial(installed='other', version=VERSION + 1)
         self.assertNotEqual(code, 0)
         self.assertEqual((calls, permission), ([], 'false'))
 

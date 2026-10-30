@@ -9,6 +9,18 @@ import build
 
 
 class ModuleTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.work = tempfile.TemporaryDirectory()
+        cls.templates = Path(cls.work.name) / 'templates.tsv'
+        base = ET.parse(build.ROOT / 'inputs/native-base-policy.xml').getroot()
+        cls.templates.write_text(build.templates_from_base(base))
+        cls.stock = build.ROOT / 'inputs/reference-custom-policy.xml'
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.work.cleanup()
+
     def inventory(self, packages, users='<package-restrictions></package-restrictions>'):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -37,6 +49,12 @@ class ModuleTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(result.stdout.splitlines(), ['com.example.current'])
+
+    def test_older_flags_attribute_is_supported(self):
+        result = self.inventory('<packages><package name="com.example.user" flags="0" />'
+                                '<package name="com.example.system" flags="129" /></packages>')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.splitlines(), ['com.example.user'])
 
     def test_framework_resource_package_names_are_not_user_apps(self):
         result = self.inventory(
@@ -69,13 +87,13 @@ class ModuleTests(unittest.TestCase):
 
     def test_generated_policy_preserves_native_fields_and_custom_stock(self):
         base = ET.parse(build.ROOT / 'inputs/native-base-policy.xml').getroot()
-        stock_path = build.MODULE / 'stock' / build.NAME
+        stock_path = self.stock
         # Exercise known policy shapes without using a personal app inventory.
         apps = ['com.heytap.health', 'com.taobao.taobao']
         with tempfile.TemporaryDirectory() as temporary:
             manifest = Path(temporary) / 'apps.txt'
             manifest.write_text('\n'.join(apps) + '\n')
-            payload = build.generate(manifest, build.MODULE / 'policy-entries.tsv', stock_path)
+            payload = build.generate(manifest, self.templates, stock_path)
         build.validate_payload(stock_path.read_bytes(), payload, apps, base)
         nodes = {e.get('pkg'): e for e in ET.fromstring(payload) if e.get('pkg') in apps}
         self.assertEqual(nodes['com.heytap.health'].get('proc_keep'), 'com.heytap.health:transport')
@@ -90,7 +108,7 @@ class ModuleTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             manifest = Path(temporary) / 'apps.txt'
             manifest.write_text('com.example.new\n')
-            payload = build.generate(manifest, build.MODULE / 'policy-entries.tsv', build.MODULE / 'stock' / build.NAME)
+            payload = build.generate(manifest, self.templates, self.stock)
             nodes = ET.fromstring(payload)
             self.assertEqual(nodes[-1].attrib, {'pkg': 'com.example.new', 'use_kill': 'true'})
             self.assertFalse(any(e.get('pkg') == 'com.discord' for e in nodes))
@@ -101,7 +119,7 @@ class ModuleTests(unittest.TestCase):
             for text in ['com.example.duplicate\ncom.example.duplicate\n', 'com.example.bad" injected="yes\n']:
                 path.write_text(text)
                 with self.assertRaises(subprocess.CalledProcessError):
-                    build.generate(path, build.MODULE / 'policy-entries.tsv', build.MODULE / 'stock' / build.NAME)
+                    build.generate(path, self.templates, self.stock)
 
 
 if __name__ == '__main__':

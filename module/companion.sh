@@ -1,7 +1,7 @@
 #!/system/bin/sh
 
 LAL_PACKAGE=io.github.dtingley11.letappslive
-LAL_VERSION_CODE=3
+LAL_VERSION_CODE=4
 
 lal_package_path() {
     timeout 10 /system/bin/pm path --user 0 "$LAL_PACKAGE"

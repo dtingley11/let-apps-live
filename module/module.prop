@@ -1,6 +1,6 @@
 id=discord_athena_usekill
-name=Let Apps Live (ColorOS 16)
-version=0.3.0
-versionCode=3
+name=Let Apps Live
+version=0.4.0
+versionCode=4
 author=dtingley11
-description=Uses ordinary kills for user-app cleanup. Includes the notification manager. Requires PLR110_16.0.10.500(CN01) and Mountify.
+description=User-app cleanup exceptions and notification retention for OnePlus China ROMs with Athena. Requires KernelSU and Mountify.

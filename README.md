@@ -1,6 +1,6 @@
 # Let Apps Live
 
-A KernelSU module and Android companion for ColorOS notification behavior.
+A KernelSU module and Android companion for OnePlus China ROMs with Athena.
 The module changes user-app cleanup from force-stop to ordinary process kill.
 The companion manages which apps retain posted notifications during cleanup.
 
@@ -10,8 +10,10 @@ The companion manages which apps retain posted notifications during cleanup.
 - Firmware: `PLR110_16.0.10.500(CN01)`.
 - KernelSU Next with Mountify in automatic mode.
 
-The current installer checks for this exact firmware and its original
-configuration. Compatibility with other setups has not been verified.
+The installer accepts other OnePlus China builds on Android 11 or newer when
+their Athena cleanup configuration is compatible. It reads the device's own
+policies and downloaded updates instead of applying the Ace 6T's configuration.
+Other devices have not been tested.
 
 If installation is rejected or something isn't working,
 [open an issue](https://github.com/dtingley11/let-apps-live/issues/new).
@@ -20,7 +22,7 @@ Include your device, firmware, root manager, and installer or Action output.
 ## Install
 
 1. Download the ZIP from [Releases](https://github.com/dtingley11/let-apps-live/releases/latest)
-   and install it in KernelSU Manager.
+   and install it in KernelSU Manager with Mountify enabled in automatic mode.
 2. Reboot to activate the cleanup configuration.
 3. Open **Let Apps Live** and select the apps whose notifications should remain.
 4. Use the module's **Action** report to check cleanup coverage and app access.
@@ -33,6 +35,11 @@ The companion needs no root authorization or Shizuku.
 Updates preserve the installed app's data and notification selections. The
 module retains its original ID, `discord_athena_usekill`, for in-place upgrades.
 Removing the module does not uninstall the companion or reset its selections.
+
+If firmware, Athena, or the original cleanup policy changes, the module disables
+its overlay at boot. Reinstall it to prepare a fresh policy. If installation
+finds an active overlay from a different firmware, disable the module and reboot
+before reinstalling.
 
 Open previously force-stopped apps once to make them eligible for pushes again.
 ColorOS's **Auto launch** permission is separate and may also need enabling.
@@ -69,9 +76,8 @@ The build produces the companion APK and bundled module ZIP under their
 respective `dist/` directories. Keep `manager/.signing/` to sign compatible app
 updates; keys and build outputs are excluded from Git.
 
-The build uses `inputs/seed-apps.txt`; installation and boot replace that seed
-with the device's user-app inventory. Use `--packages PATH` for a custom sorted
-seed manifest.
+Device policies and the user-app inventory are generated during installation.
+They are not included in the release ZIP.
 
 See [manager/](manager/) for companion details and [CHANGELOG.md](CHANGELOG.md)
 for changes. Earlier source snapshots remain under [history/](history/).

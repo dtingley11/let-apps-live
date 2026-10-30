@@ -402,7 +402,7 @@ public final class MainActivity extends Activity {
                     .setNegativeButton("Cancel", null)
                     .setPositiveButton("Restore", (dialog, which) -> change(store::restoreOriginal, "Original list restored"))
                     .show();
-            else new AlertDialog.Builder(this).setTitle("Let Apps Live · 0.2.0")
+            else new AlertDialog.Builder(this).setTitle("Let Apps Live · 0.2.1")
                     .setMessage("Manages ColorOS's notification retention list.\n\nThe module handles installation and access. No app root access, Shizuku, network access, or background polling.\n\nSwitches show list membership. Apps can still dismiss their own alerts.\n\nShows apps installed for the current Android user.")
                     .setPositiveButton("Done", null).show();
             return true;

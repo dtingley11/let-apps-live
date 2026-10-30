@@ -11,6 +11,8 @@ __pycache__/
 /module/resources.sha256
 /module/policy-entries.tsv
 /module/companion/
+/module/device/
+/module/device-state.sha256
 /manager/build/
 /manager/dist/
 /manager/.signing/

@@ -35,6 +35,7 @@ FILENAME == ARGV[2] {
         records++
         name = attribute(tag, "name")
         flags = attribute(tag, "publicFlags")
+        if (flags == "") flags = attribute(tag, "flags")
         if (name == "android") next
         if (!valid_name(name) || flags !~ /^-?[0-9]+$/) {
             bad = 1

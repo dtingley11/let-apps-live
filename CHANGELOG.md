@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+- Replaced the Ace 6T firmware restriction with checks for compatible OnePlus China ROMs.
+- Added cleanup rules based on each device's native and downloaded Athena policies.
+- Added checks that require policy refresh after firmware or Athena changes.
+
 ## 0.3.0
 
 - Bundled the notification manager APK with the cleanup module.
