@@ -8,12 +8,13 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import tempfile
 import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = Path(__file__).resolve().parent
 MODULE = ROOT / 'module'
-VERSION = '0.4.0'
+VERSION = '0.4.1'
 
 
 def semantic(node):
@@ -83,7 +84,7 @@ def main():
     allowed = {'module.prop', 'common.sh', 'customize.sh', 'post-fs-data.sh', 'action.sh',
                'companion.sh', 'service.sh', 'companion/LetAppsLive.apk', 'resources.sha256',
                'package-inventory.awk', 'generate-policy.awk'}
-    resources = sorted(allowed - {'module.prop', 'resources.sha256'})
+    resources = sorted(allowed - {'module.prop', 'resources.sha256', 'customize.sh'})
     (MODULE / 'resources.sha256').write_text(''.join(sha256((MODULE / name).read_bytes()).hexdigest() + '  ' + name + '\n' for name in resources))
     for script in MODULE.glob('*.sh'):
         subprocess.run(['sh', '-n', str(script)], check=True)
@@ -103,6 +104,11 @@ def main():
     with zipfile.ZipFile(output) as archive:
         if archive.testzip() or set(archive.namelist()) != allowed:
             raise SystemExit('ZIP validation failed.')
+    with tempfile.TemporaryDirectory() as installed:
+        with zipfile.ZipFile(output) as archive:
+            archive.extractall(installed)
+        (Path(installed) / 'customize.sh').unlink()
+        subprocess.run(['sha256sum', '-c', 'resources.sha256'], cwd=installed, check=True, capture_output=True)
     digest = sha256(output.read_bytes()).hexdigest()
     output.with_suffix('.zip.sha256').write_text(digest + '  ' + output.name + '\n')
     print(f'Built: {output}\nSHA-256: {digest}')

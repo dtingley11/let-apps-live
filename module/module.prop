@@ -1,6 +1,6 @@
 id=discord_athena_usekill
 name=Let Apps Live
-version=0.4.0
-versionCode=4
+version=0.4.1
+versionCode=5
 author=dtingley11
 description=User-app cleanup exceptions and notification retention for OnePlus China ROMs with Athena. Requires KernelSU and Mountify.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- Fixed boot integrity checks after KernelSU removes the installer script.
+
 ## 0.4.0
 
 - Replaced the Ace 6T firmware restriction with checks for compatible OnePlus China ROMs.
